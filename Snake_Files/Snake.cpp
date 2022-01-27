@@ -38,6 +38,20 @@ COORD Snake::get_pos()
     return position;
 }
 
+
+bool Snake::collide()
+{
+    if (position.X < 1 || position.X > WIDTH || position.Y < 1 || position.Y > HEIGHT)
+    {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
+      
+}
+
 bool Snake::eaten(COORD food_pos)
 {
     if(food_pos.X == position.X && food_pos.Y == position.Y)
@@ -49,6 +63,7 @@ bool Snake::eaten(COORD food_pos)
         return false;
     }
 }
+
 
 void Snake::grow()
 {

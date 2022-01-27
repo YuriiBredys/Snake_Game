@@ -49,9 +49,13 @@ void board()
 
 int main()
 {
-    srand(time(NULL));
 
-    while (true)
+
+    bool game_over = false;
+
+    srand(time(NULL));
+  
+    while (!game_over)
     {
         board();
 
@@ -76,6 +80,11 @@ int main()
 
         snake.move_snake();
 
+        if (snake.collide())
+        {
+            game_over = true;
+        }
+      
         if(snake.eaten(food.get_pos()))
         {
             food.gen_food();
