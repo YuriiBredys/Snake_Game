@@ -3,6 +3,9 @@
 #include <Windows.h>
 #include <cstdlib>
 
+#define WIDTH 50
+#define HEIGHT 25
+
 class Food
 {
 public:

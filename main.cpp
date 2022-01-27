@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <ctime>
 
 #include "Snake_Files/Snake.h"
 #include "Food_Files/Food.h"
@@ -10,10 +11,12 @@
 using namespace std;
 
 Snake snake({ WIDTH / 2,HEIGHT / 2 }, 1);
+Food food;
 
 void board()
 {
     COORD snake_pos = snake.get_pos();
+    COORD food_pos = food.get_pos();
 
     for (int i = 0; i < HEIGHT; i++)
     {
@@ -27,7 +30,11 @@ void board()
             }
             else if(i == snake_pos.Y && j == snake_pos.X)
             {
-                cout << "S";
+                cout << 'S';
+            }
+            else if(i == food_pos.Y && j == food_pos.X)
+            {
+                cout << '@';
             }
             else
             {
@@ -42,6 +49,8 @@ void board()
 
 int main()
 {
+    srand(time(NULL));
+
     while (true)
     {
         board();
@@ -66,6 +75,12 @@ int main()
         }
 
         snake.move_snake();
+
+        if(snake.eaten(food.get_pos()))
+        {
+            food.gen_food();
+            snake.grow();
+        }
 
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
     }
