@@ -18,6 +18,10 @@ public:
 
     bool collide();
 
+    bool eaten(COORD food_pos);
+
+    void grow();
+
 private:
     COORD position;
     int len;
