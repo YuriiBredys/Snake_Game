@@ -41,7 +41,10 @@ void board()
 
 int main()
 {
-    while (true)
+
+    bool game_over = false;
+
+    while (!game_over)
     {
         board();
 
@@ -65,6 +68,11 @@ int main()
         }
 
         snake.move_snake();
+
+        if (snake.collide())
+        {
+            game_over = true;
+        }
 
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), { 0, 0 });
     }
