@@ -1,9 +1,12 @@
 ﻿#pragma once
 
 #include <Windows.h>
+#include <vector>
 
 #define WIDTH 50
 #define HEIGHT 25
+
+using namespace std;
 
 class Snake
 {
@@ -22,7 +25,10 @@ public:
 
     void grow();
 
+    vector<COORD> get_body();
+
 private:
+    vector<COORD> body;
     COORD position;
     int len;
     int vel;
