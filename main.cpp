@@ -2,6 +2,7 @@
 #include <conio.h>
 
 #include "Snake_Files/Snake.h"
+#include "Food_Files/Food.h"
 
 #define WIDTH 50
 #define HEIGHT 25
