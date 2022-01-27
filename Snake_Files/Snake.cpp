@@ -38,4 +38,16 @@ COORD Snake::get_pos()
     return position;
 }
 
+bool Snake::collide()
+{
+    if (position.X < 1 || position.X > WIDTH || position.Y < 1 || position.Y > HEIGHT)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 
